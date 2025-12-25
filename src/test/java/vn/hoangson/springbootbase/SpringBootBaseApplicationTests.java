@@ -1,10 +1,10 @@
-package vn.hoidanit.laptopshop;
+package vn.hoangson.springbootbase;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LaptopshopApplicationTests {
+class SpringBootBaseApplicationTests {
 
 	@Test
 	void contextLoads() {
