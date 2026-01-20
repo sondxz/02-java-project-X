@@ -1,10 +1,10 @@
-package vn.hoangson.springbootbase;
+package vn.hoangson.todo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootBaseApplicationTests {
+class TodoApplicationTests {
 
 	@Test
 	void contextLoads() {
