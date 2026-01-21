@@ -16,6 +16,9 @@ public class Todo {
     String title;
     Boolean isCompleted;
 
+    public Todo() {
+    }
+
     public Todo(String title, Boolean isCompleted) {
         this.title = title;
         this.isCompleted = isCompleted;
