@@ -16,4 +16,37 @@ public class Todo {
     String title;
     Boolean isCompleted;
 
+    public Todo(String title, Boolean isCompleted) {
+        this.title = title;
+        this.isCompleted = isCompleted;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Boolean getIsCompleted() {
+        return isCompleted;
+    }
+
+    public void setIsCompleted(Boolean isCompleted) {
+        this.isCompleted = isCompleted;
+    }
+
+    @Override
+    public String toString() {
+        return "Todo [id=" + id + ", title=" + title + ", isCompleted=" + isCompleted + "]";
+    }
 }
