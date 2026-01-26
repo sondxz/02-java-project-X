@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import vn.hoangson.todo.domain.Todo;
@@ -24,17 +25,17 @@ public class TodoController {
         return ResponseEntity.ok().body(todoData);
     }
 
-    @GetMapping("/create-todo")
-    public String createTodo() {
-        Todo myTodo = new Todo("Sample Todo", true);
-        this.todoService.handleCreateTodo(myTodo);
-        return "Create todo endpoint";
-    }
-
     @GetMapping("/todos")
     public ResponseEntity<List<Todo>> getTodo() {
         List<Todo> listTodo = this.todoService.handleGetTodo();
         return ResponseEntity.ok().body(listTodo);
+    }
+
+    @PostMapping("/todos")
+    public String createTodo() {
+        // Todo myTodo = new Todo("Sample Todo", true);
+        // this.todoService.handleCreateTodo(myTodo);
+        return "Create todo api";
     }
 
     @GetMapping("/update-todo")
