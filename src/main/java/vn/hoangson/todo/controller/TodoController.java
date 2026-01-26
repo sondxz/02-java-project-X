@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import vn.hoangson.todo.domain.Todo;
 import vn.hoangson.todo.service.TodoService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class TodoController {
@@ -16,6 +16,12 @@ public class TodoController {
 
     public TodoController(TodoService todoService) {
         this.todoService = todoService;
+    }
+
+    @GetMapping("/todos/{id}")
+    public ResponseEntity<Todo> getTodoById(@PathVariable Long id) {
+        Todo todoData = this.todoService.getTodoById(id);
+        return ResponseEntity.ok().body(todoData);
     }
 
     @GetMapping("/create-todo")

@@ -17,6 +17,11 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
+    public Todo getTodoById(Long id) {
+        Optional<Todo> todoOptional = this.todoRepository.findById(id);
+        return todoOptional.isPresent() ? todoOptional.get() : null;
+    }
+
     public void handleCreateTodo(Todo todo) {
         System.out.println("Handling create todo: " + todo.toString());
         this.todoRepository.save(todo);
