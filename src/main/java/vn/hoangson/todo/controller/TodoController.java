@@ -40,10 +40,10 @@ public class TodoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newTodo);
     }
 
-    @PutMapping("/todos")
-    public String postUpdateTodo() {
-        this.todoService.handleUpdateTodo();
-        return "update todo endpoint";
+    @PutMapping("/todos/{id}")
+    public ResponseEntity<String> postUpdateTodo(@PathVariable Long id, @RequestBody Todo todo) {
+        this.todoService.handleUpdateTodo(id, todo);
+        return ResponseEntity.ok().body(" update successfully");
     }
 
     @GetMapping("/delete-todo")

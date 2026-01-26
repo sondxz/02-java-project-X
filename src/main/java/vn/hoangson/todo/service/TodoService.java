@@ -30,12 +30,12 @@ public class TodoService {
         return this.todoRepository.findAll();
     }
 
-    public void handleUpdateTodo() {
-        Optional<Todo> todoOptional = this.todoRepository.findById(1L);
+    public void handleUpdateTodo(Long id, Todo inputTodo) {
+        Optional<Todo> todoOptional = this.todoRepository.findById(id);
         if (todoOptional.isPresent()) {
             Todo currentTodo = todoOptional.get();
-            currentTodo.setIsCompleted(false);
-            currentTodo.setTitle("Updated Title");
+            currentTodo.setIsCompleted(inputTodo.getIsCompleted());
+            currentTodo.setTitle(inputTodo.getTitle());
 
             this.todoRepository.save(currentTodo);
         }
