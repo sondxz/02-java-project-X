@@ -41,7 +41,7 @@ public class TodoService {
         }
     }
 
-    public void handleDeleteTodo() {
-        this.todoRepository.findById(1L);
+    public void handleDeleteTodo(long id) {
+        this.todoRepository.deleteById(id);
     }
 }

@@ -47,10 +47,10 @@ public class TodoController {
         return ResponseEntity.ok().body(" update successfully");
     }
 
-    @DeleteMapping("/todos")
-    public String deleteTodo() {
-        // this.todoService.handleDeleteTodo();
-        return " delete todo endpoint";
+    @DeleteMapping("/todos/{id}")
+    public ResponseEntity<String> deleteTodo(@PathVariable Long id) {
+        this.todoService.handleDeleteTodo(id);
+        return ResponseEntity.ok().body(" delete successfully");
     }
 
 }
