@@ -53,4 +53,8 @@ public class TodoService {
             this.todoRepository.save(currentTodo);
         }
     }
+
+    public void handleDeleteTodo() {
+        this.todoRepository.findById(1L);
+    }
 }

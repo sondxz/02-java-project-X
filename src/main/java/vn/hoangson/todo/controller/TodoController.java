@@ -9,7 +9,6 @@ import vn.hoangson.todo.domain.Todo;
 import vn.hoangson.todo.service.TodoService;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @RestController
 public class TodoController {
     private final TodoService todoService;
@@ -36,5 +35,11 @@ public class TodoController {
         this.todoService.handleUpdateTodo();
         return "update todo endpoint";
     }
-    
+
+    @GetMapping("/delete-todo")
+    public String postDeleteTodo() {
+        this.todoService.handleDeleteTodo();
+        return " delete todo endpoint";
+    }
+
 }
