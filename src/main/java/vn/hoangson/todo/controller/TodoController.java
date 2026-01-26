@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import vn.hoangson.todo.domain.Todo;
 import vn.hoangson.todo.service.TodoService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 public class TodoController {
@@ -28,4 +30,11 @@ public class TodoController {
         this.todoService.handleGetTodo();
         return "get todo endpoint";
     }
+
+    @GetMapping("/update-todo")
+    public String postUpdateTodo() {
+        this.todoService.handleUpdateTodo();
+        return "update todo endpoint";
+    }
+    
 }

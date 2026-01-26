@@ -25,14 +25,14 @@ public class TodoService {
     public void handleGetTodo() {
         // List<Todo> todos = this.todoRepository.findAll();
         // todos.forEach(todo -> {
-        //     System.out.println(todo.toString());
+        // System.out.println(todo.toString());
         // });
 
         // Optional<Todo> todoOptional = this.todoRepository.findById(2L);
         // if(todoOptional.isPresent()) {
-        //     System.out.println(todoOptional.get().toString());
+        // System.out.println(todoOptional.get().toString());
         // } else {
-        //     System.out.println("Todo not found");
+        // System.out.println("Todo not found");
         // }
 
         Optional<Todo> todoOptional = this.todoRepository.findByTitle("Sample Todo");
@@ -40,6 +40,17 @@ public class TodoService {
             System.out.println(todoOptional.get().toString());
         } else {
             System.out.println("Todo not found");
+        }
+    }
+
+    public void handleUpdateTodo() {
+        Optional<Todo> todoOptional = this.todoRepository.findById(1L);
+        if (todoOptional.isPresent()) {
+            Todo currentTodo = todoOptional.get();
+            currentTodo.setIsCompleted(false);
+            currentTodo.setTitle("Updated Title");
+
+            this.todoRepository.save(currentTodo);
         }
     }
 }
