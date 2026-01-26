@@ -22,9 +22,8 @@ public class TodoService {
         return todoOptional.isPresent() ? todoOptional.get() : null;
     }
 
-    public void handleCreateTodo(Todo todo) {
-        System.out.println("Handling create todo: " + todo.toString());
-        this.todoRepository.save(todo);
+    public Todo handleCreateTodo(Todo todo) {
+        return this.todoRepository.save(todo);
     }
 
     public List<Todo> handleGetTodo() {
