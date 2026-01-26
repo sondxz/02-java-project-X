@@ -2,6 +2,7 @@ package vn.hoangson.todo.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,9 +26,9 @@ public class TodoController {
     }
 
     @GetMapping("/todos")
-    public String getTodo() {
-        this.todoService.handleGetTodo();
-        return "get todo endpoint";
+    public ResponseEntity<List<Todo>> getTodo() {
+        List<Todo> listTodo = this.todoService.handleGetTodo();
+        return ResponseEntity.ok().body(listTodo);
     }
 
     @GetMapping("/update-todo")
